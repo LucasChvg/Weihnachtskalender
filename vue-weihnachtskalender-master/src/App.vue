@@ -8,12 +8,17 @@ export default defineComponent({
 
   data() {
     return {
-      // reactive data goes here
+      count:0,
     };
   },
 
   methods: {
-    // methods go here
+    increment(){
+      this.count++;
+    },
+    reset(){
+      this.count = 0;
+    },
   },
 });
 </script>
@@ -21,8 +26,12 @@ export default defineComponent({
 <template>
   <h1>Weihnachtskalender 2021</h1>
   <div class="calendar">
-    <!-- Here goes the WindowComponents -->
+    {{count}}
   </div>
+  <button @click="increment">Click Me</button>
+  <button @click="reset">Reset</button>
+  <NumberDiv :Numbers="[0, 1, 2, 3]"/>
+  <NumberDiv :Numbers="[4, 5, 6, 7]"/>
 </template>
 
 <style>
